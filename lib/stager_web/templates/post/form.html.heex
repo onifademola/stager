@@ -1,0 +1,32 @@
+<.form class="space-y-8 divide-y divide-gray-200" let={f} for={@changeset} action={@action}>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+  
+  <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+    <label for="title" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"><%= label f, :title %></label>
+    <div class="mt-1 sm:mt-0 sm:col-span-2">
+      <div class="max-w-lg flex rounded-md shadow-sm">
+        <%# <input type="text" name="title" id="username" autocomplete="title" class="flex-1 block w-full focus:ring-indigo-500 focus:border-indigo-500 min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300">
+        </input> %>
+        <%= text_input f, :title %>
+        <%= error_tag f, :title %>
+      </div>
+    </div>
+  </div>
+  
+  <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+    <label for="body" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"> <%= label f, :body %> </label>
+    <div class="mt-1 sm:mt-0 sm:col-span-2">      
+      <%= textarea f, :body %>
+      <%= error_tag f, :body %>
+      <p class="mt-2 text-sm text-gray-500">Write a few sentences about yourself.</p>
+    </div>
+  </div>
+
+  <div>
+    <%= submit "Save" %>
+  </div>
+</.form>

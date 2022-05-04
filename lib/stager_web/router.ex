@@ -18,6 +18,17 @@ defmodule StagerWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    get "/posts", PostController, :index
+    get "/posts/:id/edit", PostController, :edit
+    get "/posts/new", PostController, :new
+    get "/posts/:id", PostController, :show
+    post "/posts", PostController, :create
+    patch "/posts/:id", POstController, :update
+    put "/posts/:id", PostController, :update
+    delete "/posts/:id", PostController, :delete
+
+    live "/light", LightLive
+    live "/license", LicenseLive
   end
 
   # Other scopes may use custom stacks.
