@@ -9,6 +9,7 @@ defmodule StagerWeb.LicenseLive do
     {:ok, socket}
   end
 
+  @spec handle_event(<<_::48>>, map, any) :: {:noreply, any}
   def handle_event("update", %{"seats" => seats}, socket) do
     seats = String.to_integer(seats)
     {:noreply, assign(socket, seats: seats, amount: Licenses.calculate(seats))}
@@ -35,7 +36,7 @@ defmodule StagerWeb.LicenseLive do
           id="customRange1"
           name="seats"
           min="1"
-          max="10"
+          max="50"
           value={@seats}
         />
       </form>
