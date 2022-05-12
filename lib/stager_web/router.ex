@@ -31,6 +31,7 @@ defmodule StagerWeb.Router do
     live "/license", LicenseLive
     live "/sales-dashboard", SalesDashboardLive
     live "/search", SearchLive
+    live "/autocomplete", AutoCompleteLive
   end
 
   # Other scopes may use custom stacks.
